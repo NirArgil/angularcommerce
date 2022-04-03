@@ -11,6 +11,7 @@
         <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
 
         <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping {{totalItem}}</button>
+        <button mat-stroked-button class="shopping" routerLink="/products">Shopping</button>
 
         <button mat-stroked-button (click)="logout()" class="signin" *ngIf="loggedinUser() else SignIn">LogOut</button>
       </div>
