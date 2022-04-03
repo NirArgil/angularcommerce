@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <section class="header">
+    <div class="navbar">
+
+      <!-- <button mat-stroked-button class="signin" routerLink="/meetings" *ngIf="loggedInVerify(); else SignIn">Make a call</button> -->
+
+      <div class="navCenter">
+        <img class="logo" src="/assets/img/logo.png" alt="logo">
+      </div>
+      <div class="navRight">
+        <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
+
+        <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping {{totalItem}}</button>
+
+        <button mat-stroked-button (click)="logout()" class="signin" *ngIf="loggedinUser() else SignIn">LogOut</button>
+      </div>
+    </div>
+    <h1 class="p1">Angular Ecommerce Nir</h1>
+    <h1 class="p2">Its time to meet the Ecommerce platform.</h1>
+
+    <button mat-stroked-button class="headerBtn">Get Start</button>
+
+  </section>
+
+  <section class="intro">
+    <h1>About us</h1>
+    <div class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
+      venenatis ex, nec rhoonsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
+      venenatis ex, nec rhoncusonsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
+      venenatis ex, nec rhoncus purus nunc ac mau purus nunc ac mauncus purus nunc ac mauris. Cras semper justo et enim ultricies tincidunt. Nullam sapien
+      mauris, convallis in vestibulum vel, onsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
+      venenatis ex, nec rhoncus purus nunc ac mauaccumsan at turpis. Integer sollicitudin, neque non rutrum vehicula, lac
+    </div>
+  </section>
+
+  <section class="footer">
+    <p>Copyright © NirArgil 2021.</p>
+  </section>
+</div>
+
+<ng-template #SignIn>
+  <button mat-stroked-button routerLink="/login" class="signin">Sign in</button>
+</ng-template>

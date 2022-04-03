@@ -1,0 +1,112 @@
+.wrapper {
+  // min-height: 2100px;
+  background-image: url(../../assets/img/1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  text-align: center;
+}
+
+.header {
+  height: 120vh;
+  z-index: 2;
+
+  .p1 {
+    font-size: 5rem;
+    // letter-spacing: 3px;
+    padding-top: 180px;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+
+  .p2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+
+  .headerBtn {
+    color: #ff4500;
+    border-color: #ff4500;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+
+    li {
+      display: inline;
+      margin-right: 10px;
+      text-align: center;
+    }
+    h3 {
+      margin: 0;
+    }
+
+    .navRight {
+      margin-right: 30px;
+      .shopping {
+        margin-right: 10px;
+      }
+    }
+
+    .navCenter {
+      margin-left: 50%;
+    }
+
+    .logo {
+      width: 54px;
+      // left: 50%;
+
+      // align-self: center;
+      // justify-self: center;
+      // position: absolute;
+    }
+
+    // .signin {
+    //   color: blue;
+    //   border-color: blue;
+    //   // float: right;
+    //   position: absolute;
+    //   right: 5%;
+    // }
+
+    // .meetings {
+    //   position: absolute;
+    //   right: 12%;
+    // }
+
+    // .username {
+    //   position: absolute;
+    //   right: 21%;
+    //   top: 10%;
+    // }
+  }
+}
+
+.intro {
+  height: 100vh;
+  padding-top: 100px;
+  height: 610px;
+  background-color: white;
+  .description{
+    margin: 0 auto;
+    font-size: 16px;
+    width: 540px;
+    height: 540px;
+  }
+}
+
+.footer {
+  background: rgba(94, 105, 121, 0.9);
+  border-top: 5px solid #687980;
+  height: 90px;
+  text-align: center;
+  width: 100%;
+  padding-top: 30px;
+}
