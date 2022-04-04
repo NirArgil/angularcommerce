@@ -10,7 +10,8 @@
       <div class="navRight">
         <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
 
-        <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping {{totalItem}}</button>
+        <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping
+          {{totalItem}}</button>
         <button mat-stroked-button class="shopping" routerLink="/products">Shopping</button>
 
         <button mat-stroked-button (click)="logout()" class="signin" *ngIf="loggedinUser() else SignIn">LogOut</button>
@@ -29,9 +30,12 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
       venenatis ex, nec rhoonsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
       venenatis ex, nec rhoncusonsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
-      venenatis ex, nec rhoncus purus nunc ac mau purus nunc ac mauncus purus nunc ac mauris. Cras semper justo et enim ultricies tincidunt. Nullam sapien
-      mauris, convallis in vestibulum vel, onsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula nisl
-      venenatis ex, nec rhoncus purus nunc ac mauaccumsan at turpis. Integer sollicitudin, neque non rutrum vehicula, lac
+      venenatis ex, nec rhoncus purus nunc ac mau purus nunc ac mauncus purus nunc ac mauris. Cras semper justo et enim
+      ultricies tincidunt. Nullam sapien
+      mauris, convallis in vestibulum vel, onsectetur adipiscing elit. Donec cursus, lorem ut molestie fermentum, ligula
+      nisl
+      venenatis ex, nec rhoncus purus nunc ac mauaccumsan at turpis. Integer sollicitudin, neque non rutrum vehicula,
+      lac
     </div>
   </section>
 

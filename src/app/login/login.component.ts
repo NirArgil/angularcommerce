@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
   formGroup = new FormGroup({
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
           alert('Login success');
           localStorage.setItem('LoggedIn', this.formGroup.value['email']);
           this.authService.login(this.formGroup.value['email']);
-          
+
           this.formGroup.reset();
         } else {
           alert('User not found');

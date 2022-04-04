@@ -1,20 +1,9 @@
 * {
   box-sizing: border-box;
 }
-// .card-top {
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   min-width: 0;
-//   word-wrap: break-word;
-//   background: #fff;
-//   background-clip: border-box;
-//   border: 1px solid rgba(0, 0, 0, 0.2);
-//   border-radius: 0.25rem;
-// }
 
 i {
-  font-size: 3rem;
+  font-size: 2.8rem;
 }
 
 .navbar {
@@ -22,7 +11,7 @@ i {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .item img {
@@ -42,11 +31,6 @@ button {
   margin-right: 10px;
 }
 
-.card {
-  padding: 20px;
-  margin: 50px;
-}
-
 .card img {
   width: 200px;
   height: 200px;
@@ -56,33 +40,58 @@ button {
 
 .card img:hover {
   transition: 0.3s ease-in-out;
-  transform: scale(1.1);
-}
-
-.card {
-  width: 400px;
-  text-align: center;
-
-  img {
-    width: 200px;
-    display: inline-block;
-  }
+  transform: scale(1.05);
 }
 
 .list {
   text-align: center;
+
   .card {
     width: 400px;
-    height: 430px;
+    height: 500px;
+    text-align: center;
     align-items: center;
-    justify-items: center;
-    // margin-bottom: 100px;
+    padding: 20px;
+    margin: 10px;
+
+    .shareButtons {
+      position: absolute;
+      bottom: 70px;
+      left: 0;
+      right: 0;
+
+      a:nth-child(1) {
+        color: blue;
+      }
+      a:nth-child(2) {
+        color: green;
+      }
+      a:nth-child(3) {
+        color: black;
+      }
+
+      i {
+        margin: 0 10px;
+        font-size: 1.8rem;
+      }
+    }
+
+    @media screen and (min-width: 360px) {
+      
+    }
+
+    @media screen and (min-width: 360px) {
+    }
+
+    @media screen and (min-width: 360px) {
+    }
   }
+
   img {
     max-width: 160px;
     max-height: 210px;
     // max-height: 180px;
-    // display: inline-block;
+    display: inline-block;
   }
 
   .buttons {

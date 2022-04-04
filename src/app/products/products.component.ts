@@ -11,12 +11,17 @@ import { CartService } from '../services/cart.service';
 export class ProductsComponent implements OnInit {
   public productList: any;
   public filterCategory: any;
-  public totalItem : number = 0;
-  
+  public totalItem: number = 0;
+
   searchKey: string = '';
+  // public searchTerm !: string;
+  breakpoint: number | undefined;
+  
   constructor(private api: ApiService, private cartService: CartService) {}
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 460) ? 1 : (window.innerWidth <= 750) ? 2 : 3;
+
     this.api.getProduct().subscribe((res: any) => {
       this.productList = res;
       this.filterCategory = res;
@@ -32,18 +37,23 @@ export class ProductsComponent implements OnInit {
       console.log(this.productList);
     });
 
-    this.cartService.search.subscribe((val: any) => {
-      this.searchKey = val;
-    });
+    // this.cartService.search.subscribe((val: any) => {
+    //   this.searchKey = val;
+    // });
 
-    this.cartService.getProducts()
-    .subscribe(res=>{
+    this.cartService.getProducts().subscribe((res) => {
       this.totalItem = res.length;
-    })
+    });
   }
-  addtocart(item: any) {
+
+  onResize(event: any) {
+    this.breakpoint = (event.target.innerWidth <= 460) ? 1 : (event.target.innerWidth <= 750) ? 2 : 3;
+  }
+
+  addtocart(item: object) {
     this.cartService.addtoCart(item);
   }
+
   filter(category: string) {
     this.filterCategory = this.productList.filter((a: any) => {
       if (a.category == category || category == '') {

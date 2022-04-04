@@ -4,13 +4,15 @@ import { ProductsComponent } from './products.component';
 import { FilterPipe } from '../shared/filter.pipe';
 import { ProductsRoutingModule } from './products-routing.module';
 import { MatButtonModule } from '@angular/material/button';
-import {MatGridListModule} from '@angular/material/grid-list'
-import {MatCardModule} from '@angular/material/card';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   declarations: [
-    ProductsComponent,
+    ProductsComponent, 
     FilterPipe
   ],
   imports: [
@@ -19,7 +21,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatButtonModule,
     MatGridListModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    ShareButtonsModule,
+    ShareIconsModule
   ],
 })
 export class ProductsModule {}

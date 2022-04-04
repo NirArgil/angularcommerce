@@ -20,6 +20,7 @@ import { DataService } from './services/data.service';
 import { HomePageComponent } from './homepage/homepage.component';
 import { AuthService } from './services/auth.service';
 
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { AuthService } from './services/auth.service';
     MatSnackBarModule,
 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareButtonsModule
   ],
   providers: [
     // CallService,

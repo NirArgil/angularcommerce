@@ -1,81 +1,69 @@
 <div class="navbar">
     <button mat-stroked-button routerLink="/home">Home</button>
-        <button mat-stroked-button routerLink="/cart">Cart</button>
-        <div>Items in Cart: {{totalItem}}</div>
-        <div class="item">
-            <a (click)="filter('')">
-                <i class="fas fa-shopping-cart"></i>
-                <h6>All products</h6>
-            </a>
-        </div>
-        <div class="item">
-            <a (click)="filter('electronics')">
-                <i class="fas fa-charging-station"></i>
-                <h6>Electronics</h6>
-            </a>
-        </div>
-        <div class="item">
-            <a (click)="filter('fashion')">
-                <i class="fas fa-vest-patches"></i>
-                <h6>Fashion</h6>
-            </a>
-        </div>
-        <div class="item">
-            <a (click)="filter('jewelery')">
-                <i class="fas fa-gem"></i>
-                <h6>Jewllery</h6>
-            </a>
-        </div>
+    <button mat-stroked-button routerLink="/cart">Cart</button>
+    <div>Items in Cart: {{totalItem}}</div>
+
+    <div class="item">
+        <a (click)="filter('')">
+            <i class="fas fa-shopping-cart"></i>
+            <h6>All products</h6>
+        </a>
+    </div>
+    <div class="item">
+        <a (click)="filter('electronics')">
+            <i class="fas fa-charging-station"></i>
+            <h6>Electronics</h6>
+        </a>
+    </div>
+    <div class="item">
+        <a (click)="filter('fashion')">
+            <i class="fas fa-vest-patches"></i>
+            <h6>Fashion</h6>
+        </a>
+    </div>
+    <div class="item">
+        <a (click)="filter('jewelery')">
+            <i class="fas fa-gem"></i>
+            <h6>Jewllery</h6>
+        </a>
+    </div>
 </div>
-
-<!-- <mat-tab-group dynamicHeight>
-    <mat-tab label="CART" mat-stroked-button routerLink="/cart"></mat-tab>
-    <mat-tab label="All Products" (click)="filter('')"></mat-tab>
-    <mat-tab label="Electronics" (click)="filter('electronics')"></mat-tab>
-    <mat-tab label="Fashion" (click)="filter('fashion')"></mat-tab>
-    <mat-tab label="Jewllery" (click)="filter('jewelery')"></mat-tab>
-
-  </mat-tab-group> -->
 
 <div class="list">
-            <mat-grid-list cols="3" rowHeight="500px" colHeight="300px">
-                <mat-grid-tile
-                    *ngFor="let item of filterCategory | filter: searchKey:'title'"
-                    [colspan]="1"
-                    [rowspan]="1">
+    <mat-grid-list [cols]="breakpoint" rowHeight="540px" colHeight="300px" (window:resize)="onResize($event)">
+        <mat-grid-tile *ngFor="let item of filterCategory | filter: searchKey:'title'" [colspan]="1" [rowspan]="1">
 
-                    <mat-card class="card">
-
-                    <img mat-card-image src="{{item.image}}" alt="{{item.title}} image">                
-                    <mat-card-title>Shiba Inu</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    <mat-card-content>
-                        <p>This card indeterminates progress bar.</p>
-                        <p>asd</p>
-                    </mat-card-content>
-                    <mat-card-actions class="buttons">
-                        <button mat-button (click)="addtocart(item)">Add to cart</button>
-                        <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                    
-                </mat-card> 
-                </mat-grid-tile>
-              </mat-grid-list>
-
-            <!-- <mat-card class="example-card">
+            <mat-card class="card">
                 <img mat-card-image src="{{item.image}}" alt="{{item.title}} image">
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                <mat-card-title>{{item.title.substring(0, 30)}}</mat-card-title>
+                <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
                 <mat-card-content>
-                    <p>This card indeterminates progress bar.</p>
-                    <p>asd</p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                </mat-card-actions>
-            </mat-card> -->
-<!-- </ng-container> -->
+                    <p>{{item.description.substring(0, 30)}}</p>
+                    <p>{{item.price}} $</p>
+                 <div class="shareButtons">
+                   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                       <i class="fab fa-facebook-square"></i>
+                    </a>   
 
+                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a> 
+                        
+                     <a href="https://telegram.com" target="_blank" rel="noopener noreferrer">
+                         <i class="fas fa-paper-plane"></i>
+                    </a>    
+                 </div>
+                        
+                   
+                </mat-card-content>
+                <mat-card-actions class="buttons">
+                    <button mat-stroked-button (click)="addtocart(item)">Add to cart</button>
+                </mat-card-actions>
+                <!-- <div class="shareButtons"> -->
+                  
+                <!-- </div> -->
+            </mat-card>
+
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
-<!-- </div> -->
