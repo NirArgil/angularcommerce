@@ -21,13 +21,13 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-      // canActivate: [AuthGuard],
+      canActivate: [AuthGuard],
   },
   {
     path: 'cart',
     loadChildren: () =>
       import('./cart/cart.module').then((m) => m.CartModule),
-      // canActivate: [AuthGuard],
+      canActivate: [AuthGuard],
   },
   { path: 'home', component: HomePageComponent },
 ];

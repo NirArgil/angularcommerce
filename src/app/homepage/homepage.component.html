@@ -2,17 +2,15 @@
   <section class="header">
     <div class="navbar">
 
-      <!-- <button mat-stroked-button class="signin" routerLink="/meetings" *ngIf="loggedInVerify(); else SignIn">Make a call</button> -->
-
       <div class="navCenter">
         <img class="logo" src="/assets/img/logo.png" alt="logo">
       </div>
       <div class="navRight">
         <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
 
-        <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping
+        <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping</button>
+        <button mat-stroked-button class="shopping" routerLink="/cart" *ngIf="loggedinUser()">Cart:
           {{totalItem}}</button>
-        <button mat-stroked-button class="shopping" routerLink="/products">Shopping</button>
 
         <button mat-stroked-button (click)="logout()" class="signin" *ngIf="loggedinUser() else SignIn">LogOut</button>
       </div>

@@ -13,8 +13,6 @@ export class ProductsComponent implements OnInit {
   public filterCategory: any;
   public totalItem: number = 0;
 
-  searchKey: string = '';
-  // public searchTerm !: string;
   breakpoint: number | undefined;
   
   constructor(private api: ApiService, private cartService: CartService) {}
@@ -36,10 +34,6 @@ export class ProductsComponent implements OnInit {
       });
       console.log(this.productList);
     });
-
-    // this.cartService.search.subscribe((val: any) => {
-    //   this.searchKey = val;
-    // });
 
     this.cartService.getProducts().subscribe((res) => {
       this.totalItem = res.length;

@@ -6,9 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  user$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(
-    null
-  );
+  user$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
   getUser(): Observable<string | null> {
     return this.user$.asObservable();

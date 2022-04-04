@@ -31,7 +31,7 @@
 
 <div class="list">
     <mat-grid-list [cols]="breakpoint" rowHeight="540px" colHeight="300px" (window:resize)="onResize($event)">
-        <mat-grid-tile *ngFor="let item of filterCategory | filter: searchKey:'title'" [colspan]="1" [rowspan]="1">
+        <mat-grid-tile *ngFor="let item of filterCategory" [colspan]="1" [rowspan]="1">
 
             <mat-card class="card">
                 <img mat-card-image src="{{item.image}}" alt="{{item.title}} image">
@@ -40,27 +40,27 @@
                 <mat-card-content>
                     <p>{{item.description.substring(0, 30)}}</p>
                     <p>{{item.price}} $</p>
-                 <div class="shareButtons">
-                   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                       <i class="fab fa-facebook-square"></i>
-                    </a>   
+                    <div class="shareButtons">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
 
-                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                    </a> 
-                        
-                     <a href="https://telegram.com" target="_blank" rel="noopener noreferrer">
-                         <i class="fas fa-paper-plane"></i>
-                    </a>    
-                 </div>
-                        
-                   
+                        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://telegram.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+
+
                 </mat-card-content>
                 <mat-card-actions class="buttons">
                     <button mat-stroked-button (click)="addtocart(item)">Add to cart</button>
                 </mat-card-actions>
                 <!-- <div class="shareButtons"> -->
-                  
+
                 <!-- </div> -->
             </mat-card>
 

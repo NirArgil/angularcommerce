@@ -5,17 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'
-// import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from "@angular/material/form-field"
 import { MatInputModule } from "@angular/material/input"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-// import { CallService } from './call.service';
-
 import { HttpClientModule } from '@angular/common/http';
-
 import { DataService } from './services/data.service';
 import { HomePageComponent } from './homepage/homepage.component';
 import { AuthService } from './services/auth.service';
@@ -44,7 +40,6 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
     ShareButtonsModule
   ],
   providers: [
-    // CallService,
     DataService,
     AuthService
   ],
