@@ -8,11 +8,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { SearchPipe } from '../shared/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ProductsComponent
-  ],
+    ProductsComponent,
+    SearchPipe
+  ],  
   imports: [
     CommonModule,
     ProductsRoutingModule,
@@ -21,7 +24,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     MatCardModule,
     MatTabsModule,
     ShareButtonsModule,
-    ShareIconsModule
+    ShareIconsModule,
+    FormsModule
   ],
 })
 export class ProductsModule {}

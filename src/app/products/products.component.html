@@ -1,6 +1,9 @@
 <div class="navbar">
     <button mat-stroked-button routerLink="/home">Home</button>
     <button mat-stroked-button routerLink="/cart">Cart</button>
+
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products">
+    
     <div>Items in Cart: {{totalItem}}</div>
 
     <div class="item">
@@ -31,7 +34,7 @@
 
 <div class="list">
     <mat-grid-list [cols]="breakpoint" rowHeight="540px" colHeight="300px" (window:resize)="onResize($event)">
-        <mat-grid-tile *ngFor="let item of filterCategory" [colspan]="1" [rowspan]="1">
+        <mat-grid-tile *ngFor="let item of filterCategory | searchPipe: searchKey:'title'" [colspan]="1" [rowspan]="1">
 
             <mat-card class="card">
                 <img mat-card-image src="{{item.image}}" alt="{{item.title}} image">
