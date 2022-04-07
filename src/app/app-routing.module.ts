@@ -4,8 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomePageComponent } from './homepage/homepage.component';
 import { AuthGuard } from './auth.guard';
-import { ProductPageComponent } from './m1/product-page/product-page.component';
-import { ProductsComponent } from './m1/products/products.component';
+// import { ProductPageComponent } from './m1/product-page/product-page.component';
+// import { ProductsComponent } from './m1/products/products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -21,20 +21,20 @@ import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
-import { ProductsModule } from './m1/products/products.module';
-import { ProductPageComponent } from './m1/product-page/product-page.component';
-import { ProductModule } from './product/product.module';
+// import { ProductPageComponent } from './m1/product-page/product-page.component';
+// import { ProductModule } from './product/product.module';
+import { ProductsModule } from './products/products.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    ProductPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 
-    ProductModule,
+    ProductsModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,

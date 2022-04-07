@@ -1,30 +1,32 @@
-<div class="container">
+<div class="wrapper">
 
-  <div class="card">
-    <div class="text-center">
+    <div class="loginText">
       <h1>Login</h1>
-      <h5>please enter email and password</h5>
+      <h3>Please enter email and password</h3>
     </div>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
-          aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <div>
+        <label for="inputEmailID">Email address</label>        
+        <input formControlName="email" type="email" class="form-control" id="inputEmailID"
+          aria-describedby="emailHelp" placeholder="Enter your email">
+        <small id="emailHelp">We'll never share your email with anyone else.</small>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
+      <div>
+        <label for="inputPasswordID">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="inputPasswordID"
           placeholder="Password">
       </div>
 
-      <button mat-stroked-button type="submit" color="primary">Login</button>
+      <div class="loginBtn">
+        <button mat-stroked-button type="submit" color="primary">Login</button>
+      </div>
 
-      <div><a routerLink="/signup">new user? click to sign up</a></div>
+      <div class="newUser">
+        <a routerLink="/signup">New user? Click to sign up</a>
+      </div>
     </form>
     {{formGroup.valid}}
     {{formGroup.value|json}}
     <button mat-stroked-button routerLink="/home">Home</button>
-  </div>
 
 </div>

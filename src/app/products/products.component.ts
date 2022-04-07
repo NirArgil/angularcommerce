@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from './state/product.service';
+import { Product } from './state/product.model';
+import {ProductsQuery} from './state/products.query';
 
 @Component({
   selector: 'app-products',
@@ -17,16 +20,22 @@ export class ProductsComponent implements OnInit {
   public searchTerm !: string;
 
   breakpoint: number | undefined;
-  searchKey:string = "";
+  searchKey: string = "";
 
-  constructor(private api: ApiService, private cartService: CartService, private productService: ProductsService) {}
+  selectProducts$: Observable<Product[]> | undefined
+ 
+  constructor(private api: ApiService, private cartService: CartService, private productService: ProductsService, private productsQuery: ProductsQuery) {}
 
   ngOnInit(): void {
     this.breakpoint = (window.innerWidth <= 460) ? 1 : (window.innerWidth <= 750) ? 2 : 3;
+    this.selectProducts$ = this.productsQuery.select('products');
 
-    this.productService.get().subscribe((res: any) => {
-      this.productList = res;
-      this.filterCategory = res;
+    this.productService.get();
+    console.log(this.selectProducts$);
+    
+    // .subscribe((res: any) => {
+      // this.productList = res;
+      // this.filterCategory = res;
       // this.productList.forEach((a: any) => {
       //   if (
       //     a.category === "women's clothing" ||
@@ -36,8 +45,8 @@ export class ProductsComponent implements OnInit {
       //   }
       //   Object.assign(a, { quantity: 1, total: a.price });
       // });
-      console.log(this.productList);
-    });
+      // console.log(this.productList);
+    // });
 
     // this.cartService.getProducts().subscribe((res) => {
     //   this.totalItem = res.length;

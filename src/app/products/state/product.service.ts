@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ID, OrArray } from '@datorama/akita';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { Products } from './products.model';
+import { Product } from './product.model';
 import { ProductsStore } from './products.store';
 
 @Injectable({ providedIn: 'root' })
@@ -12,9 +12,11 @@ export class ProductsService {
   }
 
   get() {
-    return this.http
-      .get<Products[]>('https://fakestoreapi.com/products')
-      .pipe(tap((values) => this.productsStore.set(values)));
+    return this.http.get<Product[]>('https://fakestoreapi.com/products').subscribe(entities => {
+        this.productsStore.set(entities);
+      });
+      
+      // .pipe(tap((values) => this.productsStore.set(values)));
   }
 
   // get(): Observable<Product[]> {
