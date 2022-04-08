@@ -8,7 +8,7 @@ import { ProductsState, ProductsStore } from './products.store';
 @Injectable({ providedIn: 'root' })
 export class ProductsQuery extends Query<ProductsState> {
 
-  selectProducts$ = this.select('products');
+  // selectProducts$ = this.select('products');
   // selectNumItemsOfProducts$: Observable<number> = this.selectProducts$.pipe(
   //   map((items: Product[]) => items.length)
   // )
@@ -16,7 +16,5 @@ export class ProductsQuery extends Query<ProductsState> {
   constructor(protected override store: ProductsStore) {
     super(store);
   }
-
-
-
 }
+

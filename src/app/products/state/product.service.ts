@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Product } from './product.model';
 import { ProductsStore } from './products.store';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
@@ -12,17 +13,16 @@ export class ProductsService {
   }
 
   get() {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products').subscribe(entities => {
-        this.productsStore.set(entities);
-      });
-      
-      // .pipe(tap((values) => this.productsStore.set(values)));
-  }
+   this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
+              tap(products => this.productsStore.update({products}))).subscribe()}
 
-  // get(): Observable<Product[]> {
-  //   const request = this.http.get('https://fakestoreapi.com/products').pipe(
-  //      tap(response => this.productsStore.set(response)
-  //   ));
+// filter(category: string) {
+//   this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
+//   tap(products => this.productsStore.update({products}))).subscribe()}
+
+// .pipe(
+  //     map(products => products.filter(x => x.category === category))
+  //     )
 
   // add(product: Products) {
   //   this.productsStore.add(product);

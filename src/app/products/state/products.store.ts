@@ -10,22 +10,15 @@ export interface ProductsState {
 
 export function createInitialState(): ProductsState {
   return {
-    products: []
+    products: [],
   };
 }
 
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'products' })
 export class ProductsStore extends Store<ProductsState> {
-  set(entities: Product[]) {
-    throw new Error('Method not implemented.');
-  }
-
-  // set(_entities: Product[]) {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  constructor(private productsStore: ProductsStore , private http: HttpClient) {
+  
+  constructor() {
     super(createInitialState());
   }
 }

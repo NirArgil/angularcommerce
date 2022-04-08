@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <h1>Got a question for us?</h1>
+  <h3>We'll get back to you as soon as possible.</h3>
+
+  <div class="outerForm">
+    <form [formGroup]="formGroup">
+      <div>
+        <label for="FirstNameID">First Name</label>        
+        <input formControlName="firstName" type="text" class="form-control" id="FirstNameID"
+          aria-describedby="FirstName">
+  
+      </div>
+      <div>
+        <label for="LastNameID">Last Name</label>        
+        <input formControlName="lastName" type="text" class="form-control" id="LastNameID"
+          aria-describedby="LastName">
+  
+      </div>
+      <div>
+        <label for="inputEmailID">Email</label>        
+        <input formControlName="email" type="email" class="form-control" id="inputEmailID"
+          aria-describedby="emailHelp" placeholder="Enter your email">
+  
+      </div>
+      <div>
+        <label for="MessageID">Message</label>
+        <textarea formControlName="textArea" class="form-control" id="MessageID" cols="10" rows="3"></textarea>
+        <!-- <input formControlName="password" type="password" class="form-control" id="inputPasswordID"
+          placeholder="Password"> -->
+      </div>
+  
+      <div class="contactBtn">
+        <button mat-stroked-button type="submit" color="primary">Send</button>
+      </div>
+  
+      <div class="contactBtn">
+        <button mat-stroked-button color="primary" routerLink="/home">Home</button>
+      </div>
+
+      <!-- <div class="newUser">
+        <a routerLink="/signup">New user? Click to sign up</a>
+      </div> -->
+    </form>
+
+    <div class="gMap">
+      <h1>gMap</h1>
+    </div>
+  </div>
+  
+</div>

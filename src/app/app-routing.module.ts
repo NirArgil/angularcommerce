@@ -27,16 +27,19 @@ const routes: Routes = [
       // canActivate: [AuthGuard],
       
   },
-  // { component: ProductPageComponent,
-  //   path: 'product/:id',
-  // },
-  // {
-    // path: 'cart',
-    // loadChildren: () =>
-    //   import('./m1/cart/cart.module').then((m) => m.CartModule),
-    //   canActivate: [AuthGuard],
-  // },
-
+  { 
+    path: 'contactus',
+    loadChildren: () =>
+      import('./contactus/contactus.module').then((m) => m.ContactusModule),
+      // canActivate: [AuthGuard],
+      
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./cart/cart.module').then((m) => m.CartModule),
+      canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

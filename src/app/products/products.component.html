@@ -32,9 +32,13 @@
     </div>
 </div>
 
+<!-- <div searchPipe: searchKey:'title' >
+    <div>{{ product.title }}</div>
+</div> -->
+
 <div class="list">
     <mat-grid-list [cols]="breakpoint" rowHeight="540px" colHeight="300px" (window:resize)="onResize($event)">
-        <mat-grid-tile *ngFor="let item of filterCategory | searchPipe: searchKey:'title'" [colspan]="1" [rowspan]="1">
+        <mat-grid-tile *ngFor="let item of selectProducts$ | async" [colspan]="1" [rowspan]="1">
 
             <mat-card class="card">
                 <img mat-card-image src="{{item.image}}" alt="{{item.title}} image">

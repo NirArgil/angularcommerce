@@ -9,6 +9,7 @@
         <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
 
         <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping</button>
+        <button mat-stroked-button class="shopping" routerLink="/contactus">Contact Us</button>
         <button mat-stroked-button class="shopping" routerLink="/cart" *ngIf="loggedinUser()">Cart:
           {{totalItem}}</button>
 
