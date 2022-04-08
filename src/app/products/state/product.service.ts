@@ -19,6 +19,7 @@ export class ProductsService {
   setFilter(filter : string) {
     this.productsStore.update({filter})
   }
+  
 // filter(category: string) {
 //   this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
 //   tap(products => products.filter(product => product.category === category))).this.productsStore.update({products}))).subscribe()}
