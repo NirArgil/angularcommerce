@@ -9,16 +9,19 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
   constructor(private productsStore: ProductsStore, private http: HttpClient) {
-    
+    this.get();
   }
 
   get() {
    this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
-              tap(products => this.productsStore.update({products}))).subscribe()}
+        tap(products => this.productsStore.update({products}))).subscribe()}
 
+  setFilter(filter : string) {
+    this.productsStore.update({filter})
+  }
 // filter(category: string) {
 //   this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
-//   tap(products => this.productsStore.update({products}))).subscribe()}
+//   tap(products => products.filter(product => product.category === category))).this.productsStore.update({products}))).subscribe()}
 
 // .pipe(
   //     map(products => products.filter(x => x.category === category))

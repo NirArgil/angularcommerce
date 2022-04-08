@@ -7,25 +7,25 @@
     <div>Items in Cart: {{totalItem}}</div>
 
     <div class="item">
-        <a (click)="filter('')">
+        <a (click)="setFilter('')">
             <i class="fas fa-shopping-cart"></i>
             <h6>All products</h6>
         </a>
     </div>
     <div class="item">
-        <a (click)="filter('electronics')">
+        <a (click)="setFilter('electronics')">
             <i class="fas fa-charging-station"></i>
             <h6>Electronics</h6>
         </a>
     </div>
     <div class="item">
-        <a (click)="filter('fashion')">
+        <a (click)="setFilter('fashion')">
             <i class="fas fa-vest-patches"></i>
             <h6>Fashion</h6>
         </a>
     </div>
     <div class="item">
-        <a (click)="filter('jewelery')">
+        <a (click)="setFilter('jewelery')">
             <i class="fas fa-gem"></i>
             <h6>Jewllery</h6>
         </a>
@@ -38,7 +38,7 @@
 
 <div class="list">
     <mat-grid-list [cols]="breakpoint" rowHeight="540px" colHeight="300px" (window:resize)="onResize($event)">
-        <mat-grid-tile *ngFor="let item of selectProducts$ | async" [colspan]="1" [rowspan]="1">
+        <mat-grid-tile *ngFor="let item of filteredProducts$ | async" [colspan]="1" [rowspan]="1">
 
             <mat-card class="card">
                 <img mat-card-image src="{{item.image}}" alt="{{item.title}} image">
