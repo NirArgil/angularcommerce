@@ -20,6 +20,7 @@ export class CartService {
       this.getTotalPrice();
       console.log(this.cartItemList);
     }
+    
     getTotalPrice(): number {
       let grandTotal = 0;
       this.cartItemList.map((a: any) => {

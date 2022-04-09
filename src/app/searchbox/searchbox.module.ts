@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsComponent } from './products.component';
-import { ProductsRoutingModule } from './products-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -11,35 +9,33 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { SearchPipe } from '../shared/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { SearchboxModule } from '../searchbox/searchbox.module';
+import { SearchboxComponent } from './searchbox.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    ProductsComponent,
-    SearchPipe
+    SearchboxComponent,
+    // SearchPipe
   ],  
   imports: [
     CommonModule,
-    ProductsRoutingModule,
     MatButtonModule,
     MatGridListModule,
     MatCardModule,
     MatTabsModule,
     ShareButtonsModule,
     ShareIconsModule,
-    FormsModule,
     MatAutocompleteModule,
-    SearchboxModule,
     ReactiveFormsModule,
-
     MatInputModule,
     // MatIconModule,
     // MatInputModule,
     // MatAutocompleteModule,
     // MatChipsModule,
-    // MatFormFieldModule
+    MatFormFieldModule
   ],
+  exports: [ SearchboxComponent ]
 })
 
-export class ProductsModule {}
+export class SearchboxModule {}

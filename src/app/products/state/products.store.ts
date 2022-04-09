@@ -7,12 +7,14 @@ import { Product } from './product.model';
 export interface ProductsState {
   products: Product[];
   filter: string | null;
+  selectedProduct: Product[] | null;
 }
 
 export function createInitialState(): ProductsState {
   return {
     products: [],
-    filter: null
+    filter: null,
+    selectedProduct: null
   };
 }
 

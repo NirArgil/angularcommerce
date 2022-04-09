@@ -2,8 +2,10 @@
     <button mat-stroked-button routerLink="/home">Home</button>
     <button mat-stroked-button routerLink="/cart">Cart</button>
 
-    <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products">
+    <!-- <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products"> -->
     
+    <app-searchbox [myControl]="myControl" [options]="filteredProducts$ | async"></app-searchbox>
+
     <div>Items in Cart: {{totalItem}}</div>
 
     <div class="item">

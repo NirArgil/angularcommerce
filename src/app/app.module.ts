@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 // import { ProductPageComponent } from './m1/product-page/product-page.component';
 // import { ProductModule } from './product/product.module';
 import { ProductsModule } from './products/products.module';
+import { SearchboxComponent } from './searchbox/searchbox.component';
 
 @NgModule({
   declarations: [
