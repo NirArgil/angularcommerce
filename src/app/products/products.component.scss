@@ -14,17 +14,19 @@ i {
   justify-content: center;
 }
 
-.item img {
-  width: 64px;
-}
+
 
 .item {
-  margin: 0px 30px;
+  margin: 0px 25px;
   text-align: center;
 }
 
+.item i {
+  font-size: 34px;
+}
+
 .item a:hover {
-  color: blue;
+  color: rgb(78, 77, 114);
 }
 
 button {

@@ -16,7 +16,6 @@ import { DataService } from './services/data.service';
 import { HomePageComponent } from './homepage/homepage.component';
 import { AuthService } from './services/auth.service';
 
-import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
@@ -24,7 +23,6 @@ import { environment } from '../environments/environment';
 // import { ProductPageComponent } from './m1/product-page/product-page.component';
 // import { ProductModule } from './product/product.module';
 import { ProductsModule } from './products/products.module';
-import { SearchboxComponent } from './searchbox/searchbox.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +45,6 @@ import { SearchboxComponent } from './searchbox/searchbox.component';
 
     ReactiveFormsModule,
     HttpClientModule,
-    ShareButtonsModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule
   ],

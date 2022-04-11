@@ -5,6 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ContactusComponent } from './contactus.component';
 import { ContactusRoutingModule } from './contactus-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { ContactusRoutingModule } from './contactus-routing.module';
     ContactusRoutingModule,
     ReactiveFormsModule,
     MatButtonModule,
+
+    ShareButtonsModule,
+    ShareIconsModule,
   ]
 })
 export class ContactusModule {}

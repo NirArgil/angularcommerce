@@ -90,7 +90,7 @@ export class ProductsComponent implements OnInit {
       switchMap((products: any[]) =>
         this.selectedFilter$.pipe(
           map((filter: string | null) => {
-            console.log('inside map: ', filter);
+            // console.log('inside map: ', filter);
             if (!filter) {
               return products;
             }
@@ -107,7 +107,7 @@ export class ProductsComponent implements OnInit {
             return products.filter((product) =>
               product.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
-          }),tap(console.log)
+          })
         )
       )
     );

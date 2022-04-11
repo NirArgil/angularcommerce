@@ -4,8 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
-import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
-import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { SearchPipe } from '../shared/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -24,8 +22,6 @@ import { MatInputModule } from '@angular/material/input';
     MatGridListModule,
     MatCardModule,
     MatTabsModule,
-    ShareButtonsModule,
-    ShareIconsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,

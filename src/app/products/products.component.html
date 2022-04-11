@@ -1,37 +1,38 @@
 <div class="navbar">
-    <button mat-stroked-button routerLink="/home">Home</button>
-    <button mat-stroked-button routerLink="/cart">Cart</button>
-
-    <!-- <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products"> -->
+        <button mat-stroked-button routerLink="/home">Home</button>
+        <button mat-stroked-button routerLink="/cart">Cart</button>
     
+        <div>Items in Cart: {{totalItem}}</div>
+    
+        <div class="item">
+            <a (click)="setFilter('')">
+                <i class="fas fa-shopping-cart"></i>
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="setFilter('electronics')">
+                <i class="fas fa-charging-station"></i>
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="setFilter('fashion')">
+                <i class="fas fa-vest-patches"></i>
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="setFilter('jewelery')">
+                <i class="fas fa-gem"></i>
+                <h6>Jewllery</h6>
+            </a>
+        </div>
+
+    
+
     <app-searchbox [myControl]="myControl" [options]="filteredProducts$ | async"></app-searchbox>
 
-    <div>Items in Cart: {{totalItem}}</div>
-
-    <div class="item">
-        <a (click)="setFilter('')">
-            <i class="fas fa-shopping-cart"></i>
-            <h6>All products</h6>
-        </a>
-    </div>
-    <div class="item">
-        <a (click)="setFilter('electronics')">
-            <i class="fas fa-charging-station"></i>
-            <h6>Electronics</h6>
-        </a>
-    </div>
-    <div class="item">
-        <a (click)="setFilter('fashion')">
-            <i class="fas fa-vest-patches"></i>
-            <h6>Fashion</h6>
-        </a>
-    </div>
-    <div class="item">
-        <a (click)="setFilter('jewelery')">
-            <i class="fas fa-gem"></i>
-            <h6>Jewllery</h6>
-        </a>
-    </div>
 </div>
 
 <!-- <div searchPipe: searchKey:'title' >
