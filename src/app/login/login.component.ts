@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http.get<any>('https://my-json-server.typicode.com/NirArgil/angulardb').subscribe({
+    this.http.get<any>('https://my-json-server.typicode.com/NirArgil/angulardb/users').subscribe({
       next: (res) => {
         let verifiedUser = res.find((a: any) => {
           return (

@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
 
   signUp() {
     this.http
-      .post<any>('https://my-json-server.typicode.com/NirArgil/angulardb', this.signupForm.value)
+      .post<any>('https://my-json-server.typicode.com/NirArgil/angulardb/users', this.signupForm.value)
       .subscribe({
         next: (res) => {
           alert('Sign Up Success');
