@@ -3,15 +3,15 @@
     <div class="navbar">
 
       <div class="navLogo">
-        <img class="logo" src="/assets/img/logo.png" alt="logo">
+        <img class="logo" src="/assets/img/logo1.png" alt="logo">
       </div>
-      <div class="navRight">
+      <div class="navItems">
         <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
 
-        <button mat-stroked-button class="shopping" routerLink="/products" *ngIf="loggedinUser()">Shopping</button>
-        <button mat-stroked-button class="shopping" routerLink="/contactus">Contact Us</button>
-        <button mat-stroked-button class="shopping" routerLink="/cart" *ngIf="loggedinUser()">Cart:
-          {{totalItem}}</button>
+        <button mat-stroked-button routerLink="/contactus">Contact Us</button>
+        <button mat-stroked-button routerLink="/products" *ngIf="loggedinUser()">Shopping</button>
+        <button mat-stroked-button matBadge={{totalItem}} matBadgeColor="accent" routerLink="/cart"
+          *ngIf="loggedinUser()">Cart</button>
 
         <button mat-stroked-button (click)="logout()" class="signin" *ngIf="loggedinUser() else SignIn">LogOut</button>
       </div>

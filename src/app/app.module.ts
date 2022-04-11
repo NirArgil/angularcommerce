@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 // import { ProductPageComponent } from './m1/product-page/product-page.component';
 // import { ProductModule } from './product/product.module';
 import { ProductsModule } from './products/products.module';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    MatBadgeModule,
     ProductsModule,
     FormsModule,
     BrowserAnimationsModule,

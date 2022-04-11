@@ -1,5 +1,4 @@
 .wrapper {
-  // min-height: 2100px;
   background-image: url(../../assets/img/1.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +15,6 @@
 
   .p1 {
     font-size: 2rem;
-    // letter-spacing: 3px;
     padding-top: 180px;
     font-weight: 400;
     margin-bottom: 25px;
@@ -63,68 +61,30 @@
       align-items: flex-end;
     }
 
-    li {
-      display: inline;
-      margin-right: 10px;
-      text-align: center;
-    }
     h3 {
       margin: 0;
     }
 
-    .navRight {
+    .navItems {
       width: 100%;
 
-      .shopping {
+      button {
         margin-right: 10px;
-      }
 
-      @media only screen and (min-width: 750px) {
-        width: 39%;
-      }
-
-      @media only screen and (min-width: 900px) {
-        width: 30%;
+        @media only screen and (min-width: 750px) {
+          margin-right: 23px;
+        }
       }
     }
 
     .navLogo {
-      // margin-left: 50%;
       width: 100%;
-
-      @media only screen and (min-width: 750px) {
-        margin-left: 50%;
-        width: 10%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      .logo {
+        width: 54px;
       }
     }
-
-    .logo {
-      width: 54px;
-      // left: 50%;
-
-      // align-self: center;
-      // justify-self: center;
-      // position: absolute;
-    }
-
-    // .signin {
-    //   color: blue;
-    //   border-color: blue;
-    //   // float: right;
-    //   position: absolute;
-    //   right: 5%;
-    // }
-
-    // .meetings {
-    //   position: absolute;
-    //   right: 12%;
-    // }
-
-    // .username {
-    //   position: absolute;
-    //   right: 21%;
-    //   top: 10%;
-    // }
   }
 }
 
