@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SearchboxModule } from '../searchbox/searchbox.module';
 import { MatInputModule } from '@angular/material/input';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     SearchboxModule,
     ReactiveFormsModule,
-
+    MatBadgeModule,
     MatInputModule,
     // MatIconModule,
     // MatInputModule,
