@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
-
+import { Product } from 'src/app/products/state/product.model';
 
 export interface CartState {
-  cart: [] | null;
+  cart: Product[];
 }
 
 export function createInitialState(): CartState {
@@ -16,8 +16,6 @@ export function createInitialState(): CartState {
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'cart' })
 export class CartStore extends Store<CartState> {
-  cart: any;
-  
   constructor() {
     super(createInitialState());
   }

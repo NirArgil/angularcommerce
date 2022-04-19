@@ -1,5 +1,5 @@
 export interface Product {
-  startsWith(search: (event: any) => void): unknown;
+  id: number;
   title: string;
   description: string;
   price: number;

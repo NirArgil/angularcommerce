@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   user$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 

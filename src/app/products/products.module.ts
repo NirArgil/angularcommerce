@@ -15,8 +15,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
-    ProductsComponent,
-    SearchPipe
+    ProductsComponent
   ],  
   imports: [
     CommonModule,
@@ -31,11 +30,6 @@ import {MatBadgeModule} from '@angular/material/badge';
     ReactiveFormsModule,
     MatBadgeModule,
     MatInputModule,
-    // MatIconModule,
-    // MatInputModule,
-    // MatAutocompleteModule,
-    // MatChipsModule,
-    // MatFormFieldModule
   ],
 })
 

@@ -1,22 +1,19 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import {
-  BehaviorSubject,
-  defaultIfEmpty,
   map,
-  mergeMap,
   Observable,
   startWith,
   switchMap,
-  tap,
 } from 'rxjs';
 
-import { ApiService } from '../services/api.service';
-import { CartService } from '../services/cart.service';
 import { ProductsService } from './state/product.service';
 import { Product } from './state/product.model';
 import { ProductsQuery } from './state/products.query';
 import { FormControl } from '@angular/forms';
-import { SearchboxComponent } from '../searchbox/searchbox.component';
+
+//cartState
+import { CartService } from '../cart/state/cart.service';
+import { CartQuery } from '../cart/state/cart.query';
 
 @Component({
   selector: 'app-products',
@@ -30,49 +27,36 @@ export class ProductsComponent implements OnInit {
   public productList: any;
 
   public filteredProducts$: Observable<Product[]> | undefined;
-  public selectedProducts$: Observable<Product[]> | undefined;
 
-  public searchFilteredProducts$: any;
-
-  public totalItem: number = 0;
+  public totalItems: number = 0;
   public searchTerm!: string;
 
   breakpoint: number | undefined;
-  searchKey: string = '';
-  searchOption=[]
 
   products$: Observable<Product[]>;
   selectedFilter$: Observable<string | null>;
-  selectedProduct$: Observable<Product[] | null>;
 
-
-  selectNumItemsOfProducts$: Observable<Number> | undefined;
+  cart$: Observable<Product[]> | null;
 
   constructor(
-    private api: ApiService,
     private cartService: CartService,
     private productService: ProductsService,
     private productsQuery: ProductsQuery,
-    private searchbox: SearchboxComponent
+    private cartQuery: CartQuery
   ) {
     this.products$ = this.productsQuery.select('products');
     this.selectedFilter$ = this.productsQuery.select('filter');
-    this.selectedProduct$ = this.productsQuery.select('selectedProduct')
+    this.cart$ = this.cartQuery.select('cart')
   }
 
   ngOnInit(): void {
 
     this.breakpoint = window.innerWidth <= 460 ? 1 : window.innerWidth <= 750 ? 2 : 3;
-    this.cartService.getProducts().subscribe((res) => (this.totalItem = res.length));
-
-    this.searchFilteredProducts$ = this.searchbox.filteredOptions
     
+    this.cart$?.subscribe(res => this.totalItems = res.length)
+   
     this.products$.subscribe((res: any) => {
       this.productList = res;
-
-      // this.searchbox.productListNew.next(this.productList);
-      // this.searchbox.productListNew.next(this.searchbox.productListNew.value.map(item => item.title));
-// console.log(this.searchbox.productListNew.value);
 
       this.productList.forEach((a: any) => {
         if (
@@ -90,7 +74,6 @@ export class ProductsComponent implements OnInit {
       switchMap((products: any[]) =>
         this.selectedFilter$.pipe(
           map((filter: string | null) => {
-            // console.log('inside map: ', filter);
             if (!filter) {
               return products;
             }
@@ -123,19 +106,10 @@ export class ProductsComponent implements OnInit {
   }
 
   addtocart(item: object) {
-    this.cartService.addtoCart(item);
+    this.cartService.addtoCart(item); 
   }
 
   setFilter(filter: string) {
     this.productService.setFilter(filter);
   }
-
-  // search(event: any) {
-  //   this.searchTerm = (event.target as HTMLInputElement).value;
-  //   console.log(this.searchTerm);
-  //   this.cartService.search.next(this.searchTerm);
-  //   this.products$.subscribe(result => {
-  //     result.filter(product => product.category === this.searchTerm)
-  //   })
-  // }
 }

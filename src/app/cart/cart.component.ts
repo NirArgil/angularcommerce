@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { Observable } from 'rxjs';
+import { Product } from '../products/state/product.model';
+// import { CartService } from '../services/cart.service';
+import { CartQuery } from './state/cart.query';
+import { CartService } from './state/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,20 +16,38 @@ export class CartComponent implements OnInit {
   public grandTotal!: number;
   public totalItem: number = 0;
 
-  constructor(private cartService: CartService) {}
+  public cartItems: any;
+  
+  cart$: Observable<Product[]> | undefined;
+  
+  constructor(private cartService: CartService, private cartQuery: CartQuery) {
+    this.cart$ = this.cartQuery.select('cart')
+  }
 
   ngOnInit(): void {
-    this.cartService.getProducts().subscribe((res) => {
-      this.products = res;
-      this.totalItem = res.length;
-      this.grandTotal = this.cartService.getTotalPrice();
-    });
-  }
+    // this.cartService.getProducts().subscribe((res) => {
+    //   this.products = res;
+    //   this.totalItem = res.length;
+    //   this.grandTotal = this.cartService.getTotalPrice();
+    // });
+    this.cart$?.subscribe((res) => {
+      this.cartItems = res;
+      this.grandTotal = this.getTotalPrice();
+  })  
+}
+
+getTotalPrice(): number {
+  let grandTotal = 0;
+  this.cartItems.map((a: any) => {
+    grandTotal += a.price;
+  });
+  return grandTotal;
+}
 
   removeItem(item: any) {
     this.cartService.removeCartItem(item);
   }
-  emptycart() {
+  emptyCart() {
     this.cartService.removeAllCart();
   }
 }

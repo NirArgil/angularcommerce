@@ -1,67 +1,32 @@
 import { Injectable } from '@angular/core';
-import { ID, OrArray } from '@datorama/akita';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-
-import { Observable } from 'rxjs';
+import { CartQuery } from './cart.query';
 import { CartStore } from './cart.store';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  constructor(private cartStore: CartStore, private http: HttpClient) {
-
-  }
-
-  // getProducts() {
-  //   return this.productList.asObservable();
-  // }
+  constructor(private cartStore: CartStore, private cartQuery: CartQuery) {}
 
   addtoCart(item: any) {
-    // this.cartItemList.push(product);
-    // this.productList.next(this.cartItemList);
-    // this.getTotalPrice();
-    // console.log(this.cartItemList);
-    // this.cartStore.update({cart})
-    this.getTotalPrice();
-  }
-  
-  getTotalPrice(): number {
-    let grandTotal = 0;
-    this.cartStore.cart.map((a: any) => {
-      grandTotal += a.price;
+    this.cartStore.update((state) => {
+      return { ...state, cart: [...state.cart, item] };
     });
-    return grandTotal;
+
+    console.log(this.cartQuery.select('cart').subscribe((result) => console.log(result)));
   }
+
   removeCartItem(product: any) {
-    this.cartStore.cart.map((a: any, index: any) => {
-      if (product.id === a.id) {
-        this.cartStore.cart.splice(index, 1);
-      }
+    this.cartQuery.select('cart').subscribe((result) => {
+      result.map((a: any, index: any) => {
+        if (product.id === a.id) {
+          result.splice(index, 1);
+        }
+      });
     });
-    // this.productList.next(this.cartItemList);
   }
+
   removeAllCart() {
-    this.cartStore.cart = [];
-    // this.productList.next(this.cartItemList);
+    this.cartStore.update((state) => {
+      return { ...state, cart: [] };
+    });
   }
-
-// filter(category: string) {
-//   this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
-//   tap(products => products.filter(product => product.category === category))).this.productsStore.update({products}))).subscribe()}
-
-// .pipe(
-  //     map(products => products.filter(x => x.category === category))
-  //     )
-
-  // add(product: Products) {
-  //   this.productsStore.add(product);
-  // }
-
-  // update(id: OrArray<number> | null, product: Partial<Products>) {
-  //   this.productsStore.update(id, product);
-  // }
-
-  // remove(id: ID) {
-  //   this.productsStore.remove(id);
-  // }
 }

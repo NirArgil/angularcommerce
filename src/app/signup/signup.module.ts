@@ -6,6 +6,7 @@ import { SignupRoutingModule } from './signup-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { SignupComponent } from './signup.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SignupComponent } from './signup.component';
     CommonModule,
     SignupRoutingModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ]
 })
 export class SignupModule { }
