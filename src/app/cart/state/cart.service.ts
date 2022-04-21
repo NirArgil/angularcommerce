@@ -11,7 +11,7 @@ export class CartService {
       return { ...state, cart: [...state.cart, item] };
     });
 
-    console.log(this.cartQuery.select('cart').subscribe((result) => console.log(result)));
+   this.cartQuery.select('cart').subscribe((result) => console.log(result));
   }
 
   removeCartItem(product: any) {
@@ -19,6 +19,7 @@ export class CartService {
       result.map((a: any, index: any) => {
         if (product.id === a.id) {
           result.splice(index, 1);
+          localStorage.setItem('cart products', JSON.stringify(result));
         }
       });
     });

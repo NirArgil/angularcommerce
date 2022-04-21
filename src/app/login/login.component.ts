@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject, tap } from 'rxjs';
+import { CartStore } from '../cart/state/cart.store';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 
@@ -21,12 +23,14 @@ export class LoginComponent implements OnInit {
   });
 
   auth: boolean | undefined;
+  // public total = new BehaviorSubject<any>([]);
 
   constructor(
     private data: DataService,
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private cartStore: CartStore
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +50,20 @@ export class LoginComponent implements OnInit {
           alert('Login success');
           localStorage.setItem('LoggedIn', this.formGroup.value['email']);
           this.authService.login(this.formGroup.value['email']);
+    
+          // his.total.next(localStorage.getItem('cart products'))
+          // this.total.value.pipe(
+          //   tap(t =>this.cartStore.update({t}))
+          // )
+
+          // console.log(this.total.value);t
+
+          // this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
+          //   tap(products => this.productsStore.update({products}))).subscribe()}
+
+         
+
+          this.router.navigateByUrl('/home');
 
           this.formGroup.reset();
         } else {

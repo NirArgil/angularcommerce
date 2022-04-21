@@ -19,7 +19,6 @@ export class AuthService {
 
   login(user: string) {
     this.setUser(user);
-    this.router.navigateByUrl('/home');
   }
 
   logout() {

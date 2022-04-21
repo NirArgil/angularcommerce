@@ -1,0 +1,19 @@
+<div class="navbar">
+  <div class="navLogo">
+    <img class="logo" src="/assets/img/logo1.png" alt="logo">
+  </div>
+  <div class="navItems">
+    <h3 class="username" *ngIf="loggedinUser()">Hi, {{username}}</h3>
+
+    <button mat-stroked-button routerLink="/contactus">Contact Us</button>
+    <button mat-stroked-button routerLink="/products" *ngIf="loggedinUser()">Shopping</button>
+    <button mat-stroked-button matBadge={{totalItems}} matBadgeColor="accent" routerLink="/cart"
+      *ngIf="loggedinUser()">Cart</button>
+
+    <button mat-stroked-button (click)="logout()" class="signin" *ngIf="loggedinUser() else SignIn">LogOut</button>
+  </div>
+</div>
+
+<ng-template #SignIn>
+  <button mat-stroked-button routerLink="/login" class="signin">Sign in</button>
+</ng-template>

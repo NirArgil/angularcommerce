@@ -13,8 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    SearchboxComponent,
-    // SearchPipe
+    SearchboxComponent
   ],  
   imports: [
     CommonModule,
@@ -25,10 +24,6 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,
-    // MatIconModule,
-    // MatInputModule,
-    // MatAutocompleteModule,
-    // MatChipsModule,
     MatFormFieldModule
   ],
   exports: [ SearchboxComponent ],

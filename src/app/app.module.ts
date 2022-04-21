@@ -23,17 +23,18 @@ import { environment } from '../environments/environment';
 import { ProductsModule } from './products/products.module';
 import {MatBadgeModule} from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
+import { HomepageModule } from './homepage/homepage.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomePageComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatBadgeModule,
     ProductsModule,
+    HomepageModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,

@@ -16,6 +16,8 @@ export class CartComponent implements OnInit {
   public grandTotal!: number;
   public totalItem: number = 0;
 
+  public totalItemsLS: any | undefined;
+
   public cartItems: any;
   
   cart$: Observable<Product[]> | undefined;
@@ -32,6 +34,7 @@ export class CartComponent implements OnInit {
     // });
     this.cart$?.subscribe((res) => {
       this.cartItems = res;
+      this.totalItemsLS = res;
       this.grandTotal = this.getTotalPrice();
   })  
 }

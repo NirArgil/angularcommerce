@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   map,
   Observable,
@@ -29,6 +29,7 @@ export class ProductsComponent implements OnInit {
   public filteredProducts$: Observable<Product[]> | undefined;
 
   public totalItems: number = 0;
+  public totalItemsLS: any | undefined;
   public searchTerm!: string;
 
   breakpoint: number | undefined;
@@ -54,6 +55,7 @@ export class ProductsComponent implements OnInit {
     this.breakpoint = window.innerWidth <= 460 ? 1 : window.innerWidth <= 750 ? 2 : 3;
     
     this.cart$?.subscribe(res => this.totalItems = res.length)
+    this.cart$?.subscribe(res => this.totalItemsLS = res)
    
     this.products$.subscribe((res: any) => {
       this.productList = res;
@@ -106,7 +108,8 @@ export class ProductsComponent implements OnInit {
   }
 
   addtocart(item: object) {
-    this.cartService.addtoCart(item); 
+    this.cartService.addtoCart(item);
+    localStorage.setItem('cart products', JSON.stringify(this.totalItemsLS));
   }
 
   setFilter(filter: string) {
