@@ -1,32 +1,39 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="!loggedUser; else isLogged">
 
-    <div class="loginText">
-      <h1>Login</h1>
-      <h3>Please enter email and password</h3>
+  <div class="loginText">
+    <h1>Login</h1>
+    <h3>Please enter email and password</h3>
+  </div>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="inputEmailID">Email address</label>
+      <input formControlName="email" type="email" class="form-control" id="inputEmailID" aria-describedby="emailHelp"
+        placeholder="Enter your email">
+      <small id="emailHelp">We'll never share your email with anyone else.</small>
     </div>
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="inputEmailID">Email address</label>        
-        <input formControlName="email" type="email" class="form-control" id="inputEmailID"
-          aria-describedby="emailHelp" placeholder="Enter your email">
-        <small id="emailHelp">We'll never share your email with anyone else.</small>
-      </div>
-      <div>
-        <label for="inputPasswordID">Password</label>
-        <input formControlName="password" type="password" class="form-control" id="inputPasswordID"
-          placeholder="Password">
-      </div>
+    <div>
+      <label for="inputPasswordID">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="inputPasswordID"
+        placeholder="Password">
+    </div>
 
-      <div class="loginBtn">
-        <button mat-stroked-button type="submit" color="primary">Login</button>
-      </div>
+    <div class="loginBtn">
+      <button mat-stroked-button type="submit" color="primary">Login</button>
+    </div>
 
-      <div class="newUser">
-        <a routerLink="/signup">New user? Click to sign up</a>
-      </div>
-    </form>
-    {{formGroup.valid}}
-    {{formGroup.value|json}}
-    <button mat-stroked-button routerLink="/home">Home</button>
+    <div class="newUser">
+      <a routerLink="/signup">New user? Click to sign up</a>
+    </div>
+  </form>
+  {{formGroup.valid}}
+  {{formGroup.value|json}}
+  <button mat-stroked-button routerLink="/home">Home</button>
 
 </div>
+
+<ng-template #isLogged>
+  <div class="wrapper">
+    <h3>{{loggedUser}} is already logged in</h3>
+    <button mat-stroked-button routerLink="/home">Home</button>
+  </div>
+</ng-template>

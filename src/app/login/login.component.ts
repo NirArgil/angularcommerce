@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
   });
 
   auth: boolean | undefined;
+  public loggedUser: string | undefined | null;
+  
   // public total = new BehaviorSubject<any>([]);
 
   constructor(
@@ -34,7 +36,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.data.currentAuth.subscribe((auth) => (this.auth = auth));
+      this.authService.getUser().subscribe(user => this.loggedUser = user);
+    
   }
 
   onSubmit() {
@@ -76,7 +79,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // authLogin() {
-  //   this.data.changeAuthStatus(true);
-  // }
+  isLoggedIn() {
+    console.log(this.authService.getUser());
+    
+  }
 }
