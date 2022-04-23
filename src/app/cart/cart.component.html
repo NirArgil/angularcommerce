@@ -29,7 +29,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><button mat-stroked-button>Share Your Cart</button></td>
+                    <td>
+                    <a href="https://wa.me/?text=This is my cart: {{sharedCartItems}}" target="_blank" rel="noopener noreferrer">
+                        <button mat-stroked-button>Share Your Cart</button>
+                    </a>
+                   </td>
                     <td><button mat-stroked-button (click)="emptyCart()" color="warn">Empty Cart</button></td>
                     <td><button mat-stroked-button routerLink="/products" color="primary">Shop More</button></td>
                     <td><button mat-stroked-button>Checkout</button></td>

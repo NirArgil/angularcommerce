@@ -49,15 +49,15 @@
                     <p>{{item.description.substring(0, 30)}}</p>
                     <p>{{item.price}} $</p>
                     <div class="shareButtons">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook-square"></i>
+                        <a href="mailto:nir" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-envelope"></i>
                         </a>
 
-                        <a href="" data-action="share/whatsapp/share"  target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/?text=This is the product: {{item.title}}" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-
-                        <a href="https://telegram.com" target="_blank" rel="noopener noreferrer">
+                        
+                        <a href="https://t.me/share/url?url=NirAngularCommerce.com&text={{item.title}}" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-paper-plane"></i>
                         </a>
                     </div>

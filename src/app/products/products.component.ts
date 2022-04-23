@@ -1,10 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  map,
-  Observable,
-  startWith,
-  switchMap,
-} from 'rxjs';
+import { map, Observable, startWith, switchMap } from 'rxjs';
 
 import { ProductsService } from './state/product.service';
 import { Product } from './state/product.model';
@@ -47,16 +42,16 @@ export class ProductsComponent implements OnInit {
   ) {
     this.products$ = this.productsQuery.select('products');
     this.selectedFilter$ = this.productsQuery.select('filter');
-    this.cart$ = this.cartQuery.select('cart')
+    this.cart$ = this.cartQuery.select('cart');
   }
 
   ngOnInit(): void {
+    this.breakpoint =
+      window.innerWidth <= 460 ? 1 : window.innerWidth <= 750 ? 2 : 3;
 
-    this.breakpoint = window.innerWidth <= 460 ? 1 : window.innerWidth <= 750 ? 2 : 3;
-    
-    this.cart$?.subscribe(res => this.totalItems = res.length)
-    this.cart$?.subscribe(res => this.totalItemsLS = res)
-   
+    this.cart$?.subscribe((res) => (this.totalItems = res.length));
+    this.cart$?.subscribe((res) => (this.totalItemsLS = res));
+
     this.products$.subscribe((res: any) => {
       this.productList = res;
 
@@ -79,7 +74,7 @@ export class ProductsComponent implements OnInit {
             if (!filter) {
               return products;
             }
-            
+
             return products.filter((product) => product.category === filter);
           })
         )
@@ -88,7 +83,6 @@ export class ProductsComponent implements OnInit {
         this.myControl.valueChanges.pipe(
           startWith(''),
           map((searchTerm) => {
-          
             return products.filter((product) =>
               product.title.toLowerCase().includes(searchTerm.toLowerCase())
             );

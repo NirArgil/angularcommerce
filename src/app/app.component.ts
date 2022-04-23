@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CartStore } from './cart/state/cart.store';
-import { AuthService } from './services/auth.service';
+import { UserQuery } from './signup/state/user.query';
+import { UserService } from './signup/state/user.service';
 
 @Component({
   selector: 'app-root',
@@ -14,16 +15,22 @@ export class AppComponent implements OnInit {
   title: any;
   public totalItemsLS: any | undefined;
 
-  constructor( private authService: AuthService, private cartStore: CartStore) {}
+  constructor(
+    private userService: UserService,
+    private userQuery: UserQuery,
+    private cartStore: CartStore
+  ) {}
 
   ngOnInit(): void {
     this.username$ = localStorage.getItem('LoggedIn') as string;
-    this.authService.setUser(this.username$);
+    this.userService.setUser(this.username$);
 
     this.totalItemsLS = localStorage.getItem('cart products');
 
-    this.cartStore.update(state => {
-      return {...state, cart: JSON.parse(this.totalItemsLS)}
-    })
+    if (this.totalItemsLS) {
+      this.cartStore.update((state) => {
+        return { ...state, cart: JSON.parse(this.totalItemsLS) };
+      });
+    }
   }
 }

@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CartQuery } from '../cart/state/cart.query';
 import { CartStore } from '../cart/state/cart.store';
-import { AuthService } from '../services/auth.service';
+import { User } from '../signup/state/user.model';
+import { UserQuery } from '../signup/state/user.query';
+import { UserService } from '../signup/state/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +14,14 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public username: string | null | undefined;
+  public username: User | null | undefined;
   public totalItems : number = 0;
 
-  constructor(private authService: AuthService, private cartQuery: CartQuery, private cartStore: CartStore) { }
+  constructor(private userService: UserService, private userQuery: UserQuery, private cartQuery: CartQuery, private cartStore: CartStore) { }
 
   ngOnInit(): void {
-    this.authService.user$.subscribe(user => this.username = user)
-
-    this.cartQuery.select('cart').subscribe(res => this.totalItems = res.length)
+    this.userQuery.select('user').subscribe(user => this.username = user)
+    this.cartQuery.select('cart').subscribe(res => this.totalItems = res?.length)
   }
 
   loggedinUser() {
@@ -30,7 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.userService.logout();
   }
 
 }

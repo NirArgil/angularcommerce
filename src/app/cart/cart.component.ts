@@ -17,6 +17,9 @@ export class CartComponent implements OnInit {
   public totalItem: number = 0;
 
   public totalItemsLS: any | undefined;
+  public sharedCartItemsTitles: any | undefined;
+  public sharedCartItemsPrices: any | undefined;
+  public sharedCartItems: any | undefined;
 
   public cartItems: any;
   
@@ -32,8 +35,10 @@ export class CartComponent implements OnInit {
     //   this.totalItem = res.length;
     //   this.grandTotal = this.cartService.getTotalPrice();
     // });
-    this.cart$?.subscribe((res) => {
+    this.cart$?.subscribe((res) => {   
       this.cartItems = res;
+      this.sharedCartItems = res.map((item) => ` ${item.title} Price: ${item.price}$`);
+
       this.totalItemsLS = res;
       this.grandTotal = this.getTotalPrice();
   })  
@@ -52,5 +57,9 @@ getTotalPrice(): number {
   }
   emptyCart() {
     this.cartService.removeAllCart();
+  }
+
+  cartItemsFunc(arr: any) {
+  JSON.stringify(arr)
   }
 }
