@@ -21,7 +21,7 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import { ProductsModule } from './products/products.module';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import { HomepageModule } from './homepage/homepage.module';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
@@ -57,7 +57,7 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(`${process.env['GOOGLE_API_KEY']}`)
+            provider: new GoogleLoginProvider('767248701735-us9pqehbldscesst4cq0utfp24cbemfq.apps.googleusercontent.com')
           }
         ]
       }
@@ -70,6 +70,6 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {constructor(){
-  console.log(`${process.env['GOOGLE_API_KEY']}`)
+export class AppModule {
+  constructor(){
 }}

@@ -12,7 +12,8 @@ export class UserService {
   constructor(
     private userStore: UserStore,
     private userQuery: UserQuery,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService, 
+    private http: HttpClient
     ) {
     this.userQuery.select('user').subscribe((user) => this.loggedUser = user);
   }
@@ -44,4 +45,12 @@ export class UserService {
     
     localStorage.removeItem('LoggedIn');
   }
+
+  
+getKey(){
+  this.http
+  .get<any>('https://my-json-server.typicode.com/NirArgil/angulardb/api')
+  .subscribe(res => {console.log(res);
+  })
+}
 }
