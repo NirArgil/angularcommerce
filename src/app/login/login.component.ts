@@ -1,3 +1,7 @@
+import {
+  GoogleLoginProvider,
+  SocialAuthService,
+} from '@abacritt/angularx-social-login';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -22,43 +26,57 @@ export class LoginComponent implements OnInit {
   });
 
   auth: boolean | undefined;
-  public loggedUser: User | undefined | null;
-  
+  public loggedUser: User | undefined | null ;
+  // public googleLoggedUser: string | undefined | null ;
+
   constructor(
     private http: HttpClient,
     private router: Router,
     private userQuery: UserQuery,
-    private userService: UserService
+    private userService: UserService,
+    private socialAuthService: SocialAuthService
   ) {}
 
   ngOnInit(): void {
-    this.userQuery.select('user').subscribe(user => this.loggedUser = user);
-    }
+    this.userQuery.select('user').subscribe((user) => (this.loggedUser = user));
+  }
 
   onSubmit() {
-    this.http.get<any>('https://my-json-server.typicode.com/NirArgil/angulardb/users').subscribe({
-      next: (res) => {
-        let verifiedUser = res.find((a: any) => {
-          return (
-            a.email === this.formGroup.value.email &&
-            a.password === this.formGroup.value.password
-          );
-        });
-        if (verifiedUser) {
-          alert('Login success');
-          localStorage.setItem('LoggedIn', this.formGroup.value['email']);
-          this.userService.login(this.formGroup.value['email']);    
+    this.http
+      .get<any>('https://my-json-server.typicode.com/NirArgil/angulardb/users')
+      .subscribe({
+        next: (res) => {
+          let verifiedUser = res.find((a: any) => {
+            return (
+              a.email === this.formGroup.value.email &&
+              a.password === this.formGroup.value.password
+            );
+          });
+          if (verifiedUser) {
+            alert('Login success');
+            // localStorage.setItem('LoggedIn', this.formGroup.value['email']);
+            this.userService.login(this.formGroup.value['email']);
 
-          this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/home');
 
-          this.formGroup.reset();
-        } else {
-          alert('User not found');
-        }
-      },
-      error: () => {
-        alert('Something went wrong');
-      },
-    });
+            this.formGroup.reset();
+          } else {
+            alert('User not found');
+          }
+        },
+        error: () => {
+          alert('Something went wrong');
+        },
+      });
+  }
+
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then(() =>
+        this.socialAuthService.authState.subscribe((result) =>
+          this.userService.login(result.firstName)
+        )
+      )
+      .then(() => this.router.navigateByUrl('/home'));
   }
 }

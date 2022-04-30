@@ -1,4 +1,6 @@
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -8,9 +10,13 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
  
-  constructor() {}
+  constructor(public socialAuthService: SocialAuthService, public router: Router ) {}
 
   ngOnInit(): void { 
+  }
+
+  logout() {
+    this.socialAuthService.signOut().then(() => this.router.navigate(['login']));
   }
 
 }

@@ -24,6 +24,7 @@ import { ProductsModule } from './products/products.module';
 import {MatBadgeModule} from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import { HomepageModule } from './homepage/homepage.module';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,18 @@ import { HomepageModule } from './homepage/homepage.module';
     AkitaNgRouterStoreModule
   ],
   providers: [
+    {provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true, //keeps the user signed in
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(environment.googleApiKey)
+          }
+        ]
+      }
+    },
+
     DataService,
     AuthService,
     HttpClientModule,

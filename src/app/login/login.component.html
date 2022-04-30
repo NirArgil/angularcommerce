@@ -25,8 +25,12 @@
       <a routerLink="/signup">New user? Click to sign up</a>
     </div>
   </form>
-  {{formGroup.valid}}
-  {{formGroup.value|json}}
+  <!-- {{formGroup.valid}}
+  {{formGroup.value|json}} -->
+  <button mat-stroked-button (click)="loginWithGoogle()"  id="googleBtn">
+    <img src="../../assets/img/g.png" alt="google" id="googleIcon">
+    Login with Google
+  </button>
   <button mat-stroked-button routerLink="/home">Home</button>
 
 </div>
