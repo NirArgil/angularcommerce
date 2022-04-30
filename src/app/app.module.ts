@@ -57,7 +57,7 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(`${process?.env?.['googleApiKey']}`)
+            provider: new GoogleLoginProvider(`${process.env['GOOGLE_API_KEY']}`)
           }
         ]
       }
@@ -70,4 +70,6 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {constructor(){
+  console.log(`${process.env['GOOGLE_API_KEY']}`)
+}}
